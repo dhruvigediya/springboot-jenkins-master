@@ -1,5 +1,4 @@
 package com.example.demo;
-
 import com.example.demo.controller.HomeController;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
