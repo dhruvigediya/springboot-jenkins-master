@@ -67,17 +67,17 @@ pipeline {
         }
             steps {
                 script{echo 'deploying the application'
-                withCredentials([usernamePassword(credentialsId: 'docker', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]){
+                /*withCredentials([usernamePassword(credentialsId: 'docker', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]){
                     sh "echo ${PASSWORD} | docker login -u ${USERNAME} --password-stdin"
                     sh "docker push dhruvigediya/springboot-jenkins-master:${IMAGE_NAME}"
-                }}
+                }}*/
                 
              }
         }
-  /*    stage('commit version update'){
+      stage('commit version update'){
             steps{
                 script{
-                    withCredentials([usernamePassword(credentialsId: 'git-credentials', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]){
+                    /*withCredentials([usernamePassword(credentialsId: 'git-credentials', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]){
                         sh 'git config --global user.email "20it035@charusat.edu.in"'
                         sh 'git config --global user.name "dhruvigediya"'
 
@@ -89,10 +89,10 @@ pipeline {
                         sh 'git add .'
                         sh 'git commit -m "version change"'
                         sh 'git push origin HEAD:jenkins-jobs'
-                    }
+                    }*/
                 }
             }
-        }*/
+        }
     }
     post{
         always{
