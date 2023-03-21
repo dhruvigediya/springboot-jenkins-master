@@ -70,7 +70,7 @@ pipeline {
                 /*withCredentials([usernamePassword(credentialsId: 'docker', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]){
                     sh "echo ${PASSWORD} | docker login -u ${USERNAME} --password-stdin"
                     sh "docker push dhruvigediya/springboot-jenkins-master:${IMAGE_NAME}"
-                }*/}
+                }}*/
                 
              }
         }
@@ -105,4 +105,5 @@ pipeline {
             echo 'Executing failure'
         }
     }
+}
 }
