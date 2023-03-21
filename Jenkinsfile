@@ -56,14 +56,24 @@ pipeline {
                 sh 'mvn test'}
             }
         }
+   
+    
+    
       stage('deploy') {
+        input{
+            message "Select the environment to deploy"
+            ok "done"
+            parameters{
+                choice(name: 'Type', choices:['Dev','Test','Deploy'], description: '')
+            }
 
+        }
             steps {
                 script{echo 'deploying the application'}
-                withCredentials([usernamePassword(credentialsId: 'docker', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]){
+                /*withCredentials([usernamePassword(credentialsId: 'docker', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]){
                     sh "echo ${PASSWORD} | docker login -u ${USERNAME} --password-stdin"
-                    sh "docker push dhruvi337/jenkins:${IMAGE_NAME}"
-                }}
+                    sh "docker push learnwithparth/spring-boot:${IMAGE_NAME}"
+                }}*/
                 
              }
         }
